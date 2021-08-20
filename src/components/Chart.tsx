@@ -1,7 +1,11 @@
 import ReactECharts from 'echarts-for-react';
 import { memo } from 'react';
 
-function Chart() {
+interface IChart {
+  data: number[]
+}
+
+function Chart({ data }: IChart) {
   
   const options = {
     xAxis: {
@@ -12,7 +16,7 @@ function Chart() {
         type: 'value'
     },
     series: [{
-        data: [120, 200, 150, 80, 70, 110, 130],
+        data: data,
         type: 'bar',
         showBackground: true,
         backgroundStyle: {

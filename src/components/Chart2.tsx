@@ -2,7 +2,11 @@ import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts/core';
 import { memo } from 'react';
 
-function Chart2() {
+interface IChart {
+  data: number[]
+}
+
+function Chart2({ data }: IChart) {
   const options = {
     xAxis: {
         type: 'category',
@@ -12,7 +16,7 @@ function Chart2() {
         type: 'value'
     },
     series: [{
-        data: [20, 100, 50, 30, 50, 20, 130],
+        data: data,
         type: 'line',
         showBackground: true,
         backgroundStyle: {
@@ -22,7 +26,7 @@ function Chart2() {
     tooltip: {
       trigger: 'axis',
     },
-};
+  };
 
   return (
     <div className="Chart">
