@@ -10,11 +10,11 @@ function App() {
   const [data2, setData2] = useState([20, 140, 50, 40, 220, 70, 80])
 
   const changeData = () => {
-    setData([20, 10, 40, 120, 60, 30])
+    setData(Array.from({length: 10}, () => Math.floor(Math.random() * 10)))
   }
 
   const changeData2 = () => {
-    setData2([25, 109, 420, 20, 50, 10])
+    setData2(Array.from({length: 10}, () => Math.floor(Math.random() * 10)))
   }
 
   return (

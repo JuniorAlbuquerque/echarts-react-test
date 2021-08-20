@@ -26,11 +26,17 @@ function Chart2({ data }: IChart) {
     tooltip: {
       trigger: 'axis',
     },
+    animation: true,
+    animationThreshold: 2000,
+    animationEasing: 'bounceInOut',
+    animationDelayUpdate: function (idx: any) {
+        return idx * 100;
+    },
   };
 
   return (
     <div className="Chart">
-      <ReactECharts option={options} echarts={echarts} />
+      <ReactECharts option={options} echarts={echarts} theme="dark"/>
     </div>
   );
 }

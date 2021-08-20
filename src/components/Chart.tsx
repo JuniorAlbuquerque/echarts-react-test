@@ -16,21 +16,27 @@ function Chart({ data }: IChart) {
         type: 'value'
     },
     series: [{
-        data: data,
-        type: 'bar',
-        showBackground: true,
-        backgroundStyle: {
-            color: 'rgba(180, 180, 180, 0.2)'
-        }
+      name: 'bar',
+      type: 'bar',
+      data: data,
+      emphasis: {
+          focus: 'series'
+      },
     }],
     tooltip: {
       trigger: 'axis',
+    },
+    animation: true,
+    animationThreshold: 2000,
+    animationEasing: 'bounceInOut',
+    animationDelayUpdate: function (idx: any) {
+        return idx * 100;
     },
 };
 
   return (
     <div className="Chart">
-      <ReactECharts option={options} notMerge={true} lazyUpdate={true}/>
+      <ReactECharts option={options} notMerge={true} lazyUpdate={true} theme="dark"/>
     </div>
   );
 }
